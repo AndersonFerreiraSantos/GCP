@@ -40,5 +40,5 @@ firebird.attach(dbConfig, (err, db) => {
 
 const port = 5050;
 server.listen(port, () => {
-  console.log(`Server: ${port}`);
+  console.info(`Server: ${port}`);
 });
