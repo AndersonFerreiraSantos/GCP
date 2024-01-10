@@ -16,15 +16,12 @@ def listClients(path, localFile, url):
         list = [["LocalFile", 'PatientName', 'Url']]
 
         for client in paths:
+            if client != '.DS_Store':
+                if os.path.isdir(path + '/' + client):
+                    images = getImages(path + '/' + client)
 
-            if os.path.isdir(path + '/' + client):
-                images = getImages(path + '/' + client)
-                print(images)
-            # else:
-            #     return print('Documento sem nome de client')
-
-            for image in images:
-                list.append([localFile, client, url + client + '/' + image])
+                for image in images:
+                    list.append([localFile, client, url + client + '/' + image])
         return list
 
     except FileNotFoundError:
@@ -38,12 +35,20 @@ def getImages(path):
         list = []
 
         for client in paths:
-            list.append(client)
+            if os.path.isdir(path + '/' + client):
+                print('is dir')
+            else:
+                list.append(client)
+            
         return list
 
 def generateExcelFile():
+    path = '/users/anderson/Documents/GCP/testNgrok/ETL'
+    localFile = "Person.Photo"
+    url = "https://ffy7bu-ip-186-235-59-97.tunnelmole.net/ETL/"
+    fileName = "dataImport.xlsx"
 
-    data = listClients('/users/anderson/Documents/GCP/testNgrok/ETL', "Person.Photo", "https://pe6elu-ip-186-235-59-97.tunnelmole.net/ETL/")
-    createExcel("test.xlsx", data)
+    data = listClients(path, localFile, url)
+    createExcel(fileName, data)
 
 generateExcelFile()
