@@ -43,12 +43,14 @@ def getImages(path):
         return list
 
 def generateExcelFile():
-    path = '/users/anderson/Documents/GCP/testNgrok/ETL'
+    path = '/Users/anderson/Library/CloudStorage/GoogleDrive-anderson.santos@clinicorp.com/My Drive/Temp/IMAGENS'
     localFile = "Person.Photo"
-    url = "https://ffy7bu-ip-186-235-59-97.tunnelmole.net/ETL/"
+    url = "https://rwmmvi-ip-131-100-95-161.tunnelmole.net/"
     fileName = "dataImport.xlsx"
 
     data = listClients(path, localFile, url)
     createExcel(fileName, data)
 
 generateExcelFile()
+
+#
