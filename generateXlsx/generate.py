@@ -43,7 +43,7 @@ def getImages(path):
         return list
 
 def generateExcelFile():
-    path = '/Users/anderson/Library/CloudStorage/GoogleDrive-anderson.santos@clinicorp.com/My Drive/Temp/IMAGENS'
+    path = '/Users/anderson/Desktop'
     localFile = "Person.Photo"
     url = "https://rwmmvi-ip-131-100-95-161.tunnelmole.net/"
     fileName = "dataImport.xlsx"
